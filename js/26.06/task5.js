@@ -1,6 +1,6 @@
 function callWhileStringIsNotEmpty(string, func) {
   if (Boolean(string) != false) {
-    consoleLog(string);  
+    func(string);  
     string = string.slice(0, -1);
     callWhileStringIsNotEmpty(string, func);
   }

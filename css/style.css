@@ -1,0 +1,15 @@
+.content-container {
+  font-family: Arial, Helvetica, sans-serif;  
+}
+
+.task-runner {
+  margin: 5px;
+}
+
+.title {
+  text-align: center;
+}
+
+.title, .sub-title {
+  font-weight: 900;
+}

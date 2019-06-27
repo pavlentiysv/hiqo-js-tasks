@@ -1,5 +1,5 @@
 function isValueExists(value) {
-  alert(value != null);
+  console.log(value != null);
   return value != null;
 }
 

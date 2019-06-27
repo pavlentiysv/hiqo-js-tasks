@@ -5,6 +5,6 @@ function getSum() {
       sum += +arguments[i];
     }
   }
-  alert(sum); // For html page with buttons that run tasks.
+  console.log(sum); // For html page with buttons that run tasks.
   return 0;
 }

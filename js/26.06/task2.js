@@ -7,7 +7,7 @@ function getSumAdvanced() {
       sum += +arguments[i]();
     }
   }
-  alert(sum);
+  console.log(sum);
   return 0;
 }
 

@@ -1,6 +1,5 @@
 function isValueExists(value) {
-  console.log(value != null);
-  return value != null;
+  return console.log(value !== null && value !== undefined);
 }
 
 // Expected result

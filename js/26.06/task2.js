@@ -1,14 +1,14 @@
 function getSumAdvanced() {
   var sum = 0;
   for (var i = 0; i < arguments.length; i++) {
-    if (+arguments[i]) {
-      sum += +arguments[i];
-    } else if (typeof arguments[i] == 'function') {
+    const arg = Number(arguments[i]);
+    if (arg) {
+      sum += arg;
+    } else if (typeof arguments[i] === 'function') {
       sum += +arguments[i]();
     }
   }
-  console.log(sum);
-  return 0;
+  return console.log(sum);
 }
 
 function getRandomNumber() {

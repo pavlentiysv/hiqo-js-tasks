@@ -1,6 +1,5 @@
-function callWithFunctionResult(funct1, funct2) {
-  console.log(funct1(funct2()));
-  return funct1(funct2());
+function callWithFunctionResult(funct1, funct2) {  
+  return console.log(funct1(funct2()));;
 }
 
 // Expected result callWithFunctionResult(doubleValue, getFour) => doubleValue was called with value returned by getFour, => 2 * 4 = 8

@@ -1,8 +1,9 @@
 function callWhileStringIsNotEmpty(string, func) {
-  if (Boolean(string) != false) {
-    func(string);  
-    string = string.slice(0, -1);
-    callWhileStringIsNotEmpty(string, func);
+  if (Boolean(string) !== false) {
+    var value = string;
+    func(value);
+    value = value.slice(0, -1);
+    callWhileStringIsNotEmpty(value, func);
   }
 }
 

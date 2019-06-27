@@ -1,11 +1,13 @@
 function getSumAdvanced() {
   var sum = 0;
   for (var i = 0; i < arguments.length; i++) {
-    const arg = Number(arguments[i]);
-    if (arg) {
-      sum += arg;
-    } else if (typeof arguments[i] === 'function') {
-      sum += +arguments[i]();
+    const arg = arguments[i];
+    const isFunction = typeof arg === 'function';
+    const argValue = isFunction ? arg() : arg;
+    const argNumberValue = Number(argValue);
+
+    if (argNumberValue) {
+      sum += argNumberValue;
     }
   }
   return console.log(sum);
@@ -22,3 +24,7 @@ function getTen() {
 function getTenString() {
   return '10';
 }
+
+
+
+

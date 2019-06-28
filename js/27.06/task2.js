@@ -1,27 +1,15 @@
 function difference(arr1, arr2) {
-  var buf1 = arr1.filter(function(currentValue) {
-    var countOfMatches = 0;
-    for (var i = 0; i < arr2.length; i++) {
-      if (currentValue == arr2[i]) {
-        countOfMatches++;
-      }
-    }
-    return countOfMatches < 1;
-  });
-  var buf2 = arr2.filter(function(currentValue) {
-    var countOfMatches = 0;
-    for (var i = 0; i < arr1.length; i++) {
-      if (currentValue == arr1[i]) {
-        countOfMatches++;
-      }
-    }
-    return countOfMatches < 1;
-  });
+  var uniqArr1 = [...new Set(arr1)];
+  var uniqArr2 = [...new Set(arr2)];
 
-  const arrResult = buf1.concat(buf2);
-  console.log(buf1);
-  console.log(buf2);
-  console.log(arrResult);
+  for (i = 0; i < uniqArr1.length; i++) {
+    if (uniqArr2.includes(uniqArr1[i])) {
+      uniqArr1.splice(i, 1);
+      uniqArr2.splice(i, 1);
+    }
+  }
+
+  console.log(uniqArr1.concat(uniqArr2));
 }
 
 // Expected result

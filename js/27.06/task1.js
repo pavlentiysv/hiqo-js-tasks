@@ -1,5 +1,5 @@
 function chunk(arr, divisionIndex) {
-  var arrResult = [
+  let arrResult = [
     arr.slice(0, divisionIndex),
     arr.slice(divisionIndex, arr.length)
   ];

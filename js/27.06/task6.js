@@ -1,5 +1,5 @@
 function uniq(arr) {
-  var resArr = arr.filter(function(currentValue, currentIndex) {
+  let resArr = arr.filter(function(currentValue, currentIndex) {
     return arr.indexOf(currentValue) === arr.lastIndexOf(currentValue);
   });
 

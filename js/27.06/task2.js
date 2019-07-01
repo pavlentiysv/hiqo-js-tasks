@@ -1,15 +1,13 @@
 function difference(arr1, arr2) {
-  var uniqArr1 = [...new Set(arr1)];
-  var uniqArr2 = [...new Set(arr2)];
-
-  for (i = 0; i < uniqArr1.length; i++) {
-    if (uniqArr2.includes(uniqArr1[i])) {
-      uniqArr1.splice(i, 1);
-      uniqArr2.splice(i, 1);
-    }
-  }
-
-  console.log(uniqArr1.concat(uniqArr2));
+  const commonArr = arr1.concat(arr2);
+  let bufObject = commonArr.reduce(function(accumulator, currentValue) {
+    accumulator.hasOwnProperty(currentValue) ? accumulator[currentValue]++ : (accumulator[currentValue] = 1);
+    return accumulator;
+  }, {});
+  let resultArr = Object.keys(bufObject)
+    .filter(currentValue => bufObject[currentValue] === 1)
+    .map(value => Number(value));
+  console.log(resultArr);
 }
 
 // Expected result

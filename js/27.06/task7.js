@@ -1,5 +1,5 @@
 function every(arrOfObj, func) {
-  var result = arrOfObj.every(func);
+  let result = arrOfObj.every(func);
   console.log(result);
   return result;
 }

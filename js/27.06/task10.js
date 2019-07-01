@@ -1,5 +1,5 @@
 function isEqual(obj1, obj2) {
-  var result = JSON.stringify(obj1) === JSON.stringify(obj2);
+  let result = JSON.stringify(obj1) === JSON.stringify(obj2);
   console.log(result);
   return result;
 }

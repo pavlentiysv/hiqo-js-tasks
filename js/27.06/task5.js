@@ -1,5 +1,5 @@
 function fromPairs(arr) {
-  var result = arr.reduce(function(accumulator, currentValue) {
+  let result = arr.reduce(function(accumulator, currentValue) {
     const [key, value] = currentValue;
     return {
       ...accumulator,

@@ -1,16 +1,11 @@
 function flattenDeep(arr) {
-  var arrayTrigger = 1;
-  while (arrayTrigger > 0) {
-    arrayTrigger = 0;
-    for (var i = 0; i < arr.length; i++) {
-      if (typeof arr[i] === 'object') {
-        arrayTrigger += 1;
-      }
+  return arr.reduce(function(accumulator, currentValue) {
+    if (Array.isArray(currentValue)) {
+      return accumulator.concat(flattenDeep(currentValue));
+    } else {
+      return accumulator.concat(currentValue);
     }
-    arr = arr.flat();
-  }
-  console.log(arr);
-  return arr;
+  }, []);
 }
 
 // Expected result

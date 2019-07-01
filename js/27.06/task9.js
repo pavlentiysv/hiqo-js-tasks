@@ -1,5 +1,5 @@
 function groupBy(arr, key) {
-  var result = arr.reduce(function(accumulator, currentValue){
+  let result = arr.reduce(function(accumulator, currentValue){
     (accumulator[key(currentValue)] = accumulator[key(currentValue)] || []).push(currentValue);
     return accumulator;
   }, {});

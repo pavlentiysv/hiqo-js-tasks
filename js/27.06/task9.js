@@ -1,10 +1,13 @@
-function groupBy(arr, key) {
-  return arr.reduce(function(accumulator, currentValue){
-    (accumulator[key(currentValue)] = accumulator[key(currentValue)] || []).push(currentValue);
-    return accumulator;
+function groupBy(arr, getKey) {
+  return arr.reduce((accumulator, currentValue) => {
+    const key = getKey(currentValue);
+    return {
+      ...accumulator,
+      [key]: [...(accumulator[key] || []), currentValue]
+    };
   }, {});
 }
 
 // Expected result
 
-// groupBy(['one', 'two', 'three'], (element) => element.length); // => { '3': ['one', 'two'], '5': ['three'] 
+// groupBy(['one', 'two', 'three'], (element) => element.length); // => { '3': ['one', 'two'], '5': ['three']

@@ -1,7 +1,7 @@
 function findIndex(objectForSearch, elementToFind) {
   const isFunction = typeof elementToFind === 'function';
   const searchMethod = isFunction ? 'findIndex' : 'indexOf';
-  return (objectForSearch[searchMethod](elementToFind));
+  return objectForSearch[searchMethod](elementToFind);
 }
 
 // Expected result

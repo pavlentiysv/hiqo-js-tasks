@@ -1,5 +1,24 @@
 function isEqual(obj1, obj2) {
-  return JSON.stringify(obj1) === JSON.stringify(obj2);
+  const deepSort = object => {
+    return Object.keys(object)
+      .sort()
+      .reduce((acc, key) => {
+        return {
+          ...acc,
+          [key]:
+            typeof object[key] === 'object'
+              ? deepSort(object[key])
+              : object[key]
+        };
+      }, {});
+  };
+  const obj1res = deepSort(obj1);
+  const obj2res = deepSort(obj2);
+
+  console.log(obj1res);
+  console.log(obj2res);
+
+  return JSON.stringify(obj1res) === JSON.stringify(obj2res);
 }
 
 // Expected result
@@ -13,14 +32,15 @@ const object1_1 = {
     }
   }
 };
+
 const object1_2 = {
-  a: 1,
   b: {
     c: 3,
     d: {
       e: 5
     }
-  }
+  },
+  a: 1
 };
 
 // isEqual(object1_1, object1_2); // => true

@@ -52,40 +52,40 @@
       <ol>
       
         <li>
-          <input class="task-runner" type="button" value="Task 1_1" onclick="chunk(['a', 'b', 'c', 'd'], 2)" />
-          <input class="task-runner" type="button" value="Task 1_2" onclick="chunk(['a', 'b', 'c', 'd'], 3)" />
+          <input class="task-runner" type="button" value="Task 1_1" onclick="console.log(chunk(['a', 'b', 'c', 'd'], 2))" />
+          <input class="task-runner" type="button" value="Task 1_2" onclick="console.log(chunk(['a', 'b', 'c', 'd'], 3))" />
         </li>
         <li>        
-          <input class="task-runner" type="button" value="Task 2" onclick="difference([2, 1], [2, 3, 4])" />
+          <input class="task-runner" type="button" value="Task 2" onclick="console.log(difference([2, 1], [2, 3, 4]))" />
         </li>
         <li>
-          <input class="task-runner" type="button" value="Task 3 try array" onclick="findIndex(numbers, 1)" />
-          <input class="task-runner" type="button" value="Task 3 try object" onclick="findIndex(users, (user) => user.name === 'User2')" />          
+          <input class="task-runner" type="button" value="Task 3 try array" onclick="console.log(findIndex(numbers, 1))" />
+          <input class="task-runner" type="button" value="Task 3 try object" onclick="console.log(findIndex(users, (user) => user.name === 'User2'))" />          
         </li>
         <li>
           <input class="task-runner" type="button" value="Task 4" onclick="console.log(flattenDeep([1, [2, [3, [4]], 5]]))" />
         </li>
         <li>
-          <input class="task-runner" type="button" value="Task 5" onclick="fromPairs([['a', 1], ['b', 2]])" />          
+          <input class="task-runner" type="button" value="Task 5" onclick="console.log(fromPairs([['a', 1], ['b', 2]]))" />          
         </li>      
         <li>
-          <input class="task-runner" type="button" value="Task 6" onclick="uniq([2, 1, 2, 5, 6, 5, 7])" />          
+          <input class="task-runner" type="button" value="Task 6" onclick="console.log(uniq([2, 1, 2, 5, 6, 5, 7]))" />          
         </li>
         <li>
-          <input class="task-runner" type="button" value="Task 7_1" onclick="every(users71, (user) => user.age === 22)" />          
-          <input class="task-runner" type="button" value="Task 7_2" onclick="every(users72, (user) => user.age === 22)" />          
-          <input class="task-runner" type="button" value="Task 7_3" onclick="every(users73, (user) => user.age < 24)" />          
+          <input class="task-runner" type="button" value="Task 7_1" onclick="console.log(every(users71, (user) => user.age === 22))" />          
+          <input class="task-runner" type="button" value="Task 7_2" onclick="console.log(every(users72, (user) => user.age === 22))" />          
+          <input class="task-runner" type="button" value="Task 7_3" onclick="console.log(every(users73, (user) => user.age < 24))" />          
         </li>
         <li>
-          <input class="task-runner" type="button" value="Task 8" onclick="find(users8, (user) => user.age < 23)" />          
+          <input class="task-runner" type="button" value="Task 8" onclick="console.log(find(users8, (user) => user.age < 23))" />          
         </li>
         <li>
-          <input class="task-runner" type="button" value="Task 9" onclick="groupBy(['one', 'two', 'three'], (element) => element.length)" />          
+          <input class="task-runner" type="button" value="Task 9" onclick="console.log(groupBy(['one', 'two', 'three'], (element) => element.length))" />          
         </li>
         <li>
-          <input class="task-runner" type="button" value="Task 10_1" onclick="isEqual(object1_1, object1_2)" />          
-          <input class="task-runner" type="button" value="Task 10_2" onclick="isEqual(object2_1, object2_2)" />          
-          <input class="task-runner" type="button" value="Task 10_3" onclick="isEqual(object3_1, object3_2)" />          
+          <input class="task-runner" type="button" value="Task 10_1" onclick="console.log(isEqual(object1_1, object1_2))" />          
+          <input class="task-runner" type="button" value="Task 10_2" onclick="console.log(isEqual(object2_1, object2_2))" />          
+          <input class="task-runner" type="button" value="Task 10_3" onclick="console.log(isEqual(object3_1, object3_2))" />          
         </li>
       
       </ol>

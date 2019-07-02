@@ -1,7 +1,5 @@
-function find(arrOfObj, func) {  
-  let result = arrOfObj.filter(func);
-  console.log(result);
-  return result;
+function find(arrOfObj, func) {
+  return arrOfObj.filter(func);
 }
 
 // Expected result

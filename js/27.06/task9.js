@@ -1,10 +1,8 @@
 function groupBy(arr, key) {
-  let result = arr.reduce(function(accumulator, currentValue){
+  return arr.reduce(function(accumulator, currentValue){
     (accumulator[key(currentValue)] = accumulator[key(currentValue)] || []).push(currentValue);
     return accumulator;
   }, {});
-  console.log(result);
-  return result;
 }
 
 // Expected result

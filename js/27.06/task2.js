@@ -4,10 +4,9 @@ function difference(arr1, arr2) {
     accumulator.hasOwnProperty(currentValue) ? accumulator[currentValue]++ : (accumulator[currentValue] = 1);
     return accumulator;
   }, {});
-  let resultArr = Object.keys(bufObject)
+  return Object.keys(bufObject)
     .filter(currentValue => bufObject[currentValue] === 1)
     .map(value => Number(value));
-  console.log(resultArr);
 }
 
 // Expected result

@@ -1,13 +1,11 @@
 function fromPairs(arr) {
-  let result = arr.reduce(function(accumulator, currentValue) {
+  return arr.reduce(function(accumulator, currentValue) {
     const [key, value] = currentValue;
     return {
       ...accumulator,
       [key]: value
     };
   }, {});
-  console.log(result);
-  return result;
 }
 
 //Previous solution

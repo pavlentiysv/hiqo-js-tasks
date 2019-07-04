@@ -1,5 +1,5 @@
 function partial(func, greetWord) {
-  return (inner = victim => func(greetWord, victim));
+  return victim => func(greetWord, victim);
 }
 
 // Expected result

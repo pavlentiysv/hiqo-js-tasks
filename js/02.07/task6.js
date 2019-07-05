@@ -1,12 +1,16 @@
 function memoize(fn) {
-  fn.memoCache = {};
+  const memoCache = {};
   return (...args) => {
     let key = JSON.stringify(args);
-    if (!fn.memoCache[key]) {
-      fn.memoCache[key] = fn(...args);
+    if (!memoCache[fn]) {
+      memoCache[fn] = {};
+    }
+    if (!memoCache[fn][key]) {
+      memoCache[fn][key] = fn(...args);
       console.log('computing'); // just to make sure memoization works
     }
-    return fn.memoCache[key];
+    console.log(memoCache);
+    return memoCache[fn][key];
   };
 }
 
@@ -17,7 +21,6 @@ function summ(a, b, c) {
 }
 
 const memoizedSumm = memoize(summ);
-
 // memoizedSumm(1, 2, 3); // => function summ was called, result 6
 // memoizedSumm(1, 2, 3); // => function summ was NOT called, result 6 was remembered for arguments 1, 2, 3 and returned
 // memoizedSumm(4, 2, 3); // => function summ was called, result 9

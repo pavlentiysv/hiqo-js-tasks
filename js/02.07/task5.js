@@ -1,11 +1,10 @@
 function debounce(fn, timeOut) {
-  if (timer) {
-    clearTimeout(timer);
+  fn.timers = fn.timers || {};
+  if (fn.timers[fn]) {
+    clearTimeout(fn.timers[fn]);
   }
-  timer = setTimeout(fn, timeOut);
+  fn.timers[fn] = setTimeout(fn, timeOut);
 }
-
-let timer;
 
 // Expected result
 

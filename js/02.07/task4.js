@@ -1,17 +1,28 @@
 function curry(fn) {
-  let arity = fn.length;
-
-  return function f1(...args) {
-    if (args.length >= arity) {
-      return fn(...args);
+  return function f1() {
+    if (arguments.length < fn.length) {
+      return f1.bind(this, ...arguments);
     } else {
-      return function f2(...moreArgs) {
-        var newArgs = args.concat(moreArgs);
-        return f1(...newArgs);
-      };
+      return fn.call(this, ...arguments);
     }
   };
 }
+
+// Solution without .bind()
+// function curry(fn) {
+//   let arity = fn.length;
+
+//   return function f1(...args) {
+//     if (args.length >= arity) {
+//       return fn(...args);
+//     } else {
+//       return function f2(...moreArgs) {
+//         var newArgs = args.concat(moreArgs);
+//         return f1(...newArgs);
+//       };
+//     }
+//   };
+// }
 
 // Expected result
 

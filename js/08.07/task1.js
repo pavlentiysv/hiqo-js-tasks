@@ -1,7 +1,7 @@
 function createObject(obj) {
-  for (key in obj) {
-    if (obj.hasOwnProperty(key) && typeof obj[key] === 'function')
-    obj[key] = obj[key].bind(obj);
+  for (let [key, value] of Object.entries(obj)) {
+    if (obj.hasOwnProperty(key) && typeof value === 'function')
+    obj[key] = value.bind(obj);
   }
 	return obj;
 }

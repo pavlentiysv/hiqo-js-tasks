@@ -2,12 +2,12 @@ function Collection(constructor) {
   this.collectionContainer = [];
 
   this.readAll = function() {
-    console.log(this.collectionContainer);
+    return this.collectionContainer;
   };
 
-  this.add = function(itemId, itemName) {
+  this.add = function(...args) {
     this.collectionContainer.push(
-      Object.seal(new constructor(itemId, itemName))
+      Object.seal(new constructor(...args))
     );
   };
 
@@ -20,7 +20,6 @@ function Collection(constructor) {
     };
 
     this.read = function() {
-      console.log(this.chosenItem);
       return this.chosenItem;
     };
 
@@ -47,7 +46,6 @@ function Collection(constructor) {
     };
 
     this.read = function() {
-      console.log(this.chosenItems);
       return this.chosenItems;
     };
 

@@ -1,66 +1,68 @@
 function Collection(constructor) {
   this.collectionContainer = [];
+  this.constructor = constructor;
+}
 
-  this.readAll = function() {
-    return this.collectionContainer;
-  };
+Collection.prototype.readAll = function() {
+  return this.collectionContainer;
+};
 
-  this.add = function(...args) {
-    this.collectionContainer.push(
-      Object.seal(new constructor(...args))
-    );
-  };
+Collection.prototype.add = function(...args) {
+  this.collectionContainer.push(Object.seal(new this.constructor(...args)));
+  return this.collectionContainer;
+};
 
-  this.get = function(itemToFind) {
-    this.chosenItem = this.collectionContainer.find(itemToFind);
+Collection.prototype.get = function(itemToFind) {
+  const chosenItem = this.collectionContainer.find(itemToFind);
+  const that = this;
 
-    this.update = function(modify) {
-      modify(this.chosenItem);
+  return {
+    update(modify) {
+      modify(chosenItem);
       return this;
-    };
+    },
 
-    this.read = function() {
-      return this.chosenItem;
-    };
+    read() {
+      return chosenItem;
+    },
 
-    this.remove = function() {
-      this.collectionContainer.splice(
-        this.collectionContainer.indexOf(this.chosenItem),
+    remove() {
+      that.collectionContainer.splice(
+        that.collectionContainer.indexOf(that.chosenItem),
         1
       );
-    };
-
-    return this;
+    }
   };
+};
 
-  this.getBy = function(itemsToFind) {
-    this.chosenItems = this.collectionContainer.filter(itemsToFind);
+Collection.prototype.getBy = function(itemsToFind) {
+  const chosenItems = this.collectionContainer.filter(itemsToFind);
+  const that = this;
 
-    this.update = function(modify) {
+  return {
+    update(modify) {
       let i = 0;
-      this.chosenItems.forEach(element => {
+      chosenItems.forEach(element => {
         modify(element, i);
         i++;
       });
       return this;
-    };
+    },
 
-    this.read = function() {
-      return this.chosenItems;
-    };
+    read() {
+      return chosenItems;
+    },
 
-    this.remove = function() {
-      this.chosenItems.forEach(element => {
-        this.collectionContainer.splice(
-          this.collectionContainer.indexOf(element),
+    remove() {
+      that.chosenItems.forEach(element => {
+        collectionContainer.splice(
+          collectionContainer.indexOf(element),
           1
         );
       });
-    };
-
-    return this;
+    }
   };
-}
+};
 
 /*
 	Collection methods:
@@ -112,4 +114,3 @@ dogsCollectionItems.update((dog, index) => {
 const dogs = dogsCollectionItems.read(); // => array [Dog instance(id = 1, name = 'Test name1'), Dog instance(id = 2, name = 'Test name2')]
 
 dogsCollectionItem.remove(); // => removes Dog instance object(id = 1, name = 'Test name1') from collection
-

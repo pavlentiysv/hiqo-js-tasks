@@ -1,19 +1,29 @@
-function Collection(constructor) {
-  this.collectionContainer = [];
+function SimpleCollection(constructor) {
   this.constructor = constructor;
+  this.collectionContainer = [];
 }
 
-Collection.prototype.readAll = function() {
-  return this.collectionContainer;
-};
-
-Collection.prototype.add = function(...args) {
+SimpleCollection.prototype.add = function(...args) {
   this.collectionContainer.push(Object.seal(new this.constructor(...args)));
   return this.collectionContainer;
 };
 
-Collection.prototype.get = function(itemToFind) {
-  const chosenItem = this.collectionContainer.find(itemToFind);
+SimpleCollection.prototype.get = function(itemToFind) {
+  return this.collectionContainer.find(itemToFind);
+};
+
+function Collection() {
+  SimpleCollection.apply(this, arguments);
+}
+
+Collection.prototype = Object.create(SimpleCollection.prototype);
+
+Сollection.prototype.readAll = function() {
+  return this.collectionContainer;
+};
+
+Collection.prototype.get = function() {
+  const chosenItem = SimpleCollection.prototype.get.apply(this, arguments);
   const that = this;
 
   return {
@@ -55,10 +65,7 @@ Collection.prototype.getBy = function(itemsToFind) {
 
     remove() {
       that.chosenItems.forEach(element => {
-        collectionContainer.splice(
-          collectionContainer.indexOf(element),
-          1
-        );
+        collectionContainer.splice(collectionContainer.indexOf(element), 1);
       });
     }
   };
@@ -73,7 +80,7 @@ Collection.prototype.getBy = function(itemsToFind) {
 	4) update - allows to update directly collection item, doesn't support initial model's extension (see example below)
 	5) remove - removes item from collection
 	6) read - returns collection item
-*/
+  */
 
 // Expected result
 
